@@ -21,10 +21,14 @@ if (!empty($_POST["btnModify"])) {
         $stm->execute();
 
         if ($stm->rowCount() > 0) {
-            header("Location: ../index.php");
+            if (!headers_sent()) {
+                header("Location: ../index.php");
+                exit();
+            }
+
+            echo "<script> window.location.href='../index.php' </script>";
         } else {
             echo "<div class='alert alert-danger'>Error al modificar le producto</div>";
         }
     }
 }
-?>

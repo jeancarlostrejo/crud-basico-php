@@ -10,9 +10,10 @@
 </head>
 <body>
     <script>
-        function delete_user() {
-            return response = confirm("¿Estás seguro que deseas eliminar el registro?")
-        }
+    function delete_user() {
+        return response = confirm(
+            "¿Estás seguro que deseas eliminar el registro?")
+    }
     </script>
     <div class="container-fluid">
         <h1 class="text-center p-2">Crud con PHP</h1>
@@ -100,7 +101,8 @@
                                 <a href="./modify_user.php?id=<?=$user["id"]?>"
                                     class="btn btn-sm btn-warning m-1"><i
                                         class="fa-solid fa-pen-to-square"></i></a>
-                                <a onclick="return delete_user()" href="index.php?id=<?=$user["id"]?>"
+                                <a onclick="return delete_user()"
+                                    href="index.php?id=<?=$user["id"]?>"
                                     class="btn btn-sm btn-danger m-1"><i
                                         class="fa-solid fa-trash"></i></a>
                             </td>
