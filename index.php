@@ -9,14 +9,22 @@
         crossorigin="anonymous"></script>
 </head>
 <body>
+    <script>
+        function delete_user() {
+            return response = confirm("¿Estás seguro que deseas eliminar el registro?")
+        }
+    </script>
     <div class="container-fluid">
         <h1 class="text-center p-2">Crud con PHP</h1>
+        <?php 
+        require_once("./db/conection.php");
+        require_once("./module/delete.php"); 
+        ?>
         <div class="row">
             <form class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-2"
                 method="POST">
                 <h3 class="text-center text-secondary">Registrar Usuario</h3>
                 <?php 
-                require_once("./db/conection.php");
                 require_once "./module/register.php";
                 ?>
                 <div class="mb-3">
@@ -96,7 +104,7 @@
                                 <a href="./modify_user.php?id=<?=$user["id"]?>"
                                     class="btn btn-sm btn-warning m-1"><i
                                         class="fa-solid fa-pen-to-square"></i></a>
-                                <a href="delete"
+                                <a onclick="return delete_user()" href="index.php?id=<?=$user["id"]?>"
                                     class="btn btn-sm btn-danger m-1"><i
                                         class="fa-solid fa-trash"></i></a>
                             </td>
