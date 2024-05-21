@@ -99,11 +99,11 @@
                             </td>
                             <td>
                                 <a href="./modify_user.php?id=<?=$user["id"]?>"
-                                    class="btn btn-sm btn-warning m-1"><i
+                                    class="btn btn-sm btn-warning m-1" title="Editar"><i
                                         class="fa-solid fa-pen-to-square"></i></a>
                                 <a onclick="return delete_user()"
                                     href="index.php?id=<?=$user["id"]?>"
-                                    class="btn btn-sm btn-danger m-1"><i
+                                    class="btn btn-sm btn-danger m-1" title="Eliminar"><i
                                         class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
