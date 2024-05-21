@@ -16,8 +16,8 @@
                 method="POST">
                 <h3 class="text-center text-secondary">Registrar Usuario</h3>
                 <?php 
-                require("./db/conection.php");
-                require "./module/register.php";
+                require_once("./db/conection.php");
+                require_once "./module/register.php";
                 ?>
                 <div class="mb-3">
                     <label for="inputName" class="form-label">Nombre</label>
@@ -70,7 +70,6 @@
                     </thead>
                     <tbody>
                         <?php
-                        require_once "./db/conection.php";
                         $stm = $pdo->prepare("SELECT * FROM users");
                         $stm->execute();
                         $result = $stm->fetchAll();
@@ -94,7 +93,7 @@
                             <td><?=date("d/m/Y", strtotime($user["birthday"]));?>
                             </td>
                             <td>
-                                <a href="delete"
+                                <a href="./modify_user.php?id=<?=$user["id"]?>"
                                     class="btn btn-sm btn-warning m-1"><i
                                         class="fa-solid fa-pen-to-square"></i></a>
                                 <a href="delete"
