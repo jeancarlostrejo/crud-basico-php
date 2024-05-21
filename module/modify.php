@@ -24,7 +24,6 @@ if (!empty($_POST["btnModify"])) {
             header("Location: ../index.php");
         } else {
             echo "<div class='alert alert-danger'>Error al modificar le producto</div>";
-
         }
     }
 }

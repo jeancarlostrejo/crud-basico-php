@@ -37,26 +37,22 @@
                         class="form-label">Apellido</label>
                     <input type="text" class="form-control" name="lastname"
                         id="inputLastname">
-
                 </div>
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Correo</label>
                     <input type="email" class="form-control" name="email"
                         id="inputEmail">
-
                 </div>
                 <div class="mb-3">
                     <label for="inputDNI" class="form-label">DNI</label>
                     <input type="text" class="form-control" name="dni"
                         id="inputDNI">
-
                 </div>
                 <div class="mb-3">
                     <label for="inputBirthday" class="form-label">Fecha de
                         nacimiento</label>
                     <input type="date" class="form-control" name="birthday"
                         id="inputBirthday">
-
                 </div>
                 <button type="submit" class="btn btn-primary" name="btnRegister"
                     value="ok">Registrar</button>

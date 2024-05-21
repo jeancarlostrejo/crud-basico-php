@@ -3,8 +3,6 @@
 if (!empty($_POST["btnRegister"])) {
     if (empty($_POST["name"]) || empty($_POST["lastname"]) || empty($_POST["email"]) || empty($_POST["dni"]) || empty($_POST["birthday"])) {
         echo "<div class='alert alert-danger'>Todos los campos son olbigatorios</div>";
-
-
     } else {
         $name = $_POST["name"];
         $lastname = $_POST["lastname"];
@@ -13,7 +11,6 @@ if (!empty($_POST["btnRegister"])) {
         $birthday = $_POST["birthday"];
 
         try {
-
             $stm = $pdo->prepare("SELECT id FROM users where email=?");
             $stm->bindParam(1, $email);
             $stm->execute();
@@ -43,5 +40,5 @@ if (!empty($_POST["btnRegister"])) {
 }
 ?>
 <script>
-    history.replaceState(null,null,location.pathname);
+history.replaceState(null, null, location.pathname);
 </script>

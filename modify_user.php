@@ -8,6 +8,7 @@ if (empty($_GET["id"])) {
 $stm = $pdo->prepare("SELECT * FROM users WHERE id=?");
 $stm->bindParam(1, $_GET["id"]);
 $stm->execute();
+
 $user = $stm->fetch();
 
 ?>
@@ -36,8 +37,8 @@ $user = $stm->fetch();
                 <input type="hidden" value="<?=$_GET["id"];?>" name="id">
 
                 <?php
-require_once "./module/modify.php";
-?>
+                require_once "./module/modify.php";
+                ?>
 
                 <div class="mb-3">
                     <label for="inputName" class="form-label">Nombre</label>
@@ -49,19 +50,16 @@ require_once "./module/modify.php";
                         class="form-label">Apellido</label>
                     <input type="text" class="form-control" name="lastname"
                         id="inputLastname" value="<?=$user["lastname"];?>">
-
                 </div>
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Correo</label>
                     <input type="email" class="form-control" name="email"
                         id="inputEmail" value="<?=$user["email"];?>">
-
                 </div>
                 <div class="mb-3">
                     <label for="inputDNI" class="form-label">DNI</label>
                     <input type="text" class="form-control" name="dni"
                         id="inputDNI" value="<?=$user["dni"];?>">
-
                 </div>
                 <div class="mb-3">
                     <label for="inputBirthday" class="form-label">Fecha de
@@ -69,7 +67,6 @@ require_once "./module/modify.php";
                     <input type="date" class="form-control" name="birthday"
                         id="inputBirthday"
                         value="<?=date("Y-m-d", strtotime($user["birthday"]));?>">
-
                 </div>
                 <button type="submit" class="btn btn-primary" name="btnModify"
                     value="ok">Modificar</button>
