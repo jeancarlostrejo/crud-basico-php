@@ -58,23 +58,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>None</td>
-                        <td>
-                            <a href="delete"
-                                class="btn btn-sm btn-warning m-1"><i
-                                    class="fa-solid fa-pen-to-square fa-lg"></i></a>
-                            <a href="delete"
-                                class="btn btn-sm btn-danger m-1"><i
-                                    class="fa-solid fa-trash fa-lg"></i></a>
-                        </td>
-                    </tr>
+                    <?php
+                    require_once "./db/conection.php";
+                    $stm = $pdo->prepare("SELECT * FROM users");
+                    $stm->execute();
+                    $result = $stm->fetchAll();
+                    ?>
 
+                    <?php if ($stm->rowCount() <= 0): ?>
+                        <tr>
+                            <td colspan="6">
+                                <h3 class="text-center text-black-50 ">No hay
+                                    registros</h3>
+                            </td>
+                        </tr>
+                    <?php else: ?>
+                        <?php foreach ($result as $user): ?>
+                            <tr>
+                                <td><?=$user["id"];?></td>
+                                <td><?=$user["name"];?></td>
+                                <td><?=$user["lastname"];?></td>
+                                <td><?=$user["email"];?></td>
+                                <td><?=$user["dni"];?></td>
+                                <td><?=date("d/m/Y", strtotime($user["birthday"]));?>
+                                </td>
+                                <td>
+                                    <a href="delete"
+                                        class="btn btn-sm btn-warning m-1"><i
+                                            class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                                    <a href="delete"
+                                        class="btn btn-sm btn-danger m-1"><i
+                                            class="fa-solid fa-trash fa-lg"></i></a>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
+                    <?php endif;?>
                 </tbody>
             </table>
         </div>
